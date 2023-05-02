@@ -1,14 +1,5 @@
 const Task = require('../models/task.model');
 
-//wrong code example: deprecated, the callback function is no longer accepted:
-/*exports.getAllTasks = function (req, res) {
-    Task.find({}, function (err, tasks) {
-        if (err) {
-            res.send(err);
-        }
-        res.json(tasks);
-    });
-};*/
 
 exports.getAllTasks = (req, res) => {
     Task.find({})
