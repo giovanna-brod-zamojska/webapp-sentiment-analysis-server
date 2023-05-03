@@ -1,7 +1,7 @@
 const Task = require('../models/task.model');
 
-
-exports.getAllTasks = (req, res) => {
+//get the tasks
+exports.getAllTasks = function(req, res) {
     Task.find({})
       .then(tasks => res.status(200).json(tasks))
       .catch(error => res.status(500).json({ error }));
@@ -9,7 +9,7 @@ exports.getAllTasks = (req, res) => {
   
 
 // Add a new task
-exports.addTask = function (req, res) {
+exports.addTask = function(req, res) {
     const newTask = new Task(req.body);
     newTask.save()
     .then(savedTask => {
